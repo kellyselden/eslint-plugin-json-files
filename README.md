@@ -44,6 +44,12 @@ Then configure the rules you want to use under the rules section.
 }
 ```
 
+Don't forget to use the extension option.
+
+```
+eslint --ext json .
+```
+
 ## Supported Rules
 
 | Rule ID | Description |    |
