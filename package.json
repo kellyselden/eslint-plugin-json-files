@@ -1,0 +1,31 @@
+{
+  "name": "eslint-plugin-json-files",
+  "version": "0.0.0",
+  "description": "ESLint JSON processor and rules",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "author": "Kelly Selden",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha tests --recursive"
+  },
+  "dependencies": {
+    "requireindex": "^1.2.0",
+    "semver": "^5.6.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.13.0",
+    "mocha": "^5.2.0"
+  },
+  "peerDependencies": {
+    "eslint": ">=5"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "license": "MIT"
+}
