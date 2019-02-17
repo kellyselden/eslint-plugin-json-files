@@ -1,8 +1,8 @@
 'use strict';
 
-let assert = require('chai').assert,
-  CLIEngine = require('eslint').CLIEngine,
-  plugin = require('../../../lib');
+let assert = require('chai').assert;
+let CLIEngine = require('eslint').CLIEngine;
+let plugin = require('../../../lib');
 
 function initCLI(isAutofixEnabled) {
   let fix = isAutofixEnabled || false;

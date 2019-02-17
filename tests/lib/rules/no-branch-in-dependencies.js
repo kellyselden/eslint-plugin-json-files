@@ -8,9 +8,9 @@
 // Requirements
 // ------------------------------------------------------------------------------
 
-let rule = require('../../../lib/rules/no-branch-in-dependencies'),
+let rule = require('../../../lib/rules/no-branch-in-dependencies');
 
-  RuleTester = require('eslint').RuleTester;
+let RuleTester = require('eslint').RuleTester;
 
 const { processors: { '.json': processor } } = require('../../../lib');
 
