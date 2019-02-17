@@ -57,3 +57,7 @@ eslint --ext json .
 | [json-files/no-branch-in-dependencies](./docs/rules/no-branch-in-dependencies.md) | prevent branches in package.json dependencies |  |
 | [json-files/require-engines](./docs/rules/require-engines.md) | require the engines field in package.json |  |
 | [json-files/require-license](./docs/rules/require-license.md) | require a license in package.json |  |
+
+## Footnotes
+
+I wouldn't mind getting this merged into [eslint-plugin-node](https://github.com/mysticatea/eslint-plugin-node) or [eslint-plugin-json](https://github.com/azeemba/eslint-plugin-json).
