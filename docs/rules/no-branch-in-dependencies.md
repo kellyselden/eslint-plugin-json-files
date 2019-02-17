@@ -1,36 +1,41 @@
-# Prevent branches in package.json dependencies (no-branch-in-dependencies)
+# prevent branches in package.json dependencies (no-branch-in-dependencies)
 
-Please describe the origin of the rule here.
+Sometimes you may accidentally commit a temporary branch of a dependency instead of a version.
 
 
 ## Rule Details
 
-This rule aims to...
+This rule aims to prevent branches instead of versions.
 
 Examples of **incorrect** code for this rule:
 
-```js
-
-// fill me in
-
+```json
+{
+  "dependencies": {
+    "lodash": "lodash/lodash"
+  }
+}
 ```
 
 Examples of **correct** code for this rule:
 
-```js
-
-// fill me in
-
+```json
+{
+  "dependencies": {
+    "lodash": "^4.17.11"
+  }
+}
 ```
 
 ### Options
 
-If there are any options, describe them here. Otherwise, delete this section.
+* `"keys": ["dependencies", "devDependencies", "optionalDependencies"]` alter the dependency keys checked
+* `"ignore": []` add certain dependencies to the ignore list
 
 ## When Not To Use It
 
-Give a short description of when it would be appropriate to turn off this rule.
+If you use long-lived branches as part of your normal workflow, you may not want this rule.
 
 ## Further Reading
 
-If there are other links that describe the issue this rule addresses, please include them here in a bulleted list.
+https://docs.npmjs.com/files/package.json#dependencies

@@ -46,9 +46,7 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
-* Fill in provided rules here
-
-
-
-
-
+| Rule ID | Description |    |
+|:--------|:------------|:--:|
+| [json-files/no-branch-in-dependencies](./docs/rules/no-branch-in-dependencies.md) | prevent branches in package.json dependencies |  |
+| [json-files/require-license](./docs/rules/require-license.md) | require a license in package.json |  |

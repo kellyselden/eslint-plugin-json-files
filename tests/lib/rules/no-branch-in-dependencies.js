@@ -2,22 +2,9 @@
 
 const { RuleTester } = require('eslint');
 const rule = require('../../../lib/rules/no-branch-in-dependencies');
-const processor = require('../../../lib/processors/json');
+const preprocess = require('../../helpers/preprocess');
 
-// RuleTester doesn't allow preprocessors
-function preprocess(item) {
-  item.code = processor.preprocess(item.code, item.filename)[0];
-  return item;
-}
-
-function fix(tests) {
-  for (let type of Object.keys(tests)) {
-    tests[type] = tests[type].map(preprocess);
-  }
-  return tests;
-}
-
-new RuleTester().run('no-branch-in-dependencies', rule, fix({
+new RuleTester().run('no-branch-in-dependencies', rule, preprocess({
   valid: [
     {
       code: '{ "dependencies": { "lodash": "1.2.3" } }',
@@ -43,7 +30,7 @@ new RuleTester().run('no-branch-in-dependencies', rule, fix({
     {
       code: '{ "dependencies": { "lodash": "lodash/lodash" } }',
       filename: 'package.json',
-      options: [{ exclude: ['lodash'] }]
+      options: [{ ignore: ['lodash'] }]
     }
   ],
   invalid: [

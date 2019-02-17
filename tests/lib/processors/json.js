@@ -1,15 +1,12 @@
 'use strict';
 
-let assert = require('chai').assert;
-let CLIEngine = require('eslint').CLIEngine;
-let plugin = require('../../../lib');
+const { expect } = require('chai');
+const { CLIEngine } = require('eslint');
+const plugin = require('../../../lib');
 
-function initCLI(isAutofixEnabled) {
-  let fix = isAutofixEnabled || false;
+function initCLI() {
   let cli = new CLIEngine({
-    envs: ['browser'],
     extensions: ['json'],
-    fix,
     ignore: false,
     rules: {
       'quote-props': [2, 'as-needed']
@@ -21,10 +18,9 @@ function initCLI(isAutofixEnabled) {
 }
 
 describe('plugin', function() {
-
   let cli;
-  let shortText = `{
-  "asdf": "sdfa"
+  let text = `{
+  "foo": "bar"
 }
 `;
 
@@ -33,11 +29,11 @@ describe('plugin', function() {
   });
 
   it('should run on .json files', function() {
-    let report = cli.executeOnText(shortText, 'package.json');
+    let report = cli.executeOnText(text, 'package.json');
 
-    assert.equal(report.results.length, 1);
-    assert.equal(report.results[0].messages.length, 1);
-    assert.equal(report.results[0].messages[0].message, 'Unnecessarily quoted property \'asdf\' found.');
-    assert.equal(report.results[0].messages[0].line, 2);
+    expect(report.results.length).to.equal(1);
+    expect(report.results[0].messages.length).to.equal(1);
+    expect(report.results[0].messages[0].message).to.equal('Unnecessarily quoted property \'foo\' found.');
+    expect(report.results[0].messages[0].line).to.equal(2);
   });
 });
