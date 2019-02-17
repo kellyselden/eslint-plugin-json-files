@@ -29,7 +29,7 @@ describe('plugin', function() {
   });
 
   it('should run on .json files', function() {
-    let report = cli.executeOnText(text, 'package.json');
+    let report = cli.executeOnText(text, 'test.json');
 
     expect(report.results.length).to.equal(1);
     expect(report.results[0].messages.length).to.equal(1);

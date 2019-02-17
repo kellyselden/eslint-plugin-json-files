@@ -41,4 +41,3 @@ If this is a private package or app that isn't published, you may not want this 
 ## Further Reading
 
 https://docs.npmjs.com/files/package.json#license
-

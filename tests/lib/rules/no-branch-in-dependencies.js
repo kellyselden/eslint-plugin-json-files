@@ -31,6 +31,10 @@ new RuleTester().run('no-branch-in-dependencies', rule, preprocess({
       code: '{ "dependencies": { "lodash": "lodash/lodash" } }',
       filename: 'package.json',
       options: [{ ignore: ['lodash'] }]
+    },
+    {
+      code: '{ "dependencies": { "lodash": "lodash/lodash" } }',
+      filename: 'not-package.json'
     }
   ],
   invalid: [

@@ -49,4 +49,5 @@ Then configure the rules you want to use under the rules section.
 | Rule ID | Description |    |
 |:--------|:------------|:--:|
 | [json-files/no-branch-in-dependencies](./docs/rules/no-branch-in-dependencies.md) | prevent branches in package.json dependencies |  |
+| [json-files/require-engines](./docs/rules/require-engines.md) | require the engines field in package.json |  |
 | [json-files/require-license](./docs/rules/require-license.md) | require a license in package.json |  |

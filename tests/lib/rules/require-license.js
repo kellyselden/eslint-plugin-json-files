@@ -14,6 +14,10 @@ new RuleTester().run('require-license', rule, preprocess({
       code: '{ "license": "UNLICENSED" }',
       filename: 'package.json',
       options: ['allow-unlicensed']
+    },
+    {
+      code: '{}',
+      filename: 'not-package.json'
     }
   ],
   invalid: [
