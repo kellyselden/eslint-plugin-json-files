@@ -1,7 +1,15 @@
 language: node_js
 node_js:
-- "6"
+- '6'
 before_install:
 - npm install -g npm@6
 before_script:
 - npm run lint
+deploy:
+  provider: npm
+  email: kellyselden@gmail.com
+  api_key:
+    secure: 2564A7fqWwtDUViSCaLlHjB0N2BC+D8yaRGJbiV6T/lnesYzY5LGe6ePZlj9LNrs5dt9D3RAP2LAI2C/pS4qophFozn1yh4gzpOcHH7Dgnr6cIm4wh1ZThg6tFamI6FJyxq1Hp88h1YsMQ7qOh75CR6YlTTLeyST54QGPcuSaCsf2ybmf0EfjgiQb315Att1ujfUYtrIAoNK/A8KVvtF/uzexr/NEmsTLf7oEcLKijK66ZxSRqzRXJ+3KwQcDnsiqQ/ymWjCKWuqJW3jRbTufpxtHz33AJp5mgwjY0wk2h9AWnq5SL+ZNP0B044NRLsMJgZ2NlopcSflWhjXK7arAm5YY5ILqh3RXbGqV61FQyfNMSSjmY7ymlh/fKrtxCwdeSuTSsIb4KytNyWBE8YHlznB3S7lFd1vhH3nAaNQWPwm85LOTd7M7DUDueBv/cyedGO29ejFC7aarg4mTih8N4iIvyX8L7WfCgxVj7j/P8XXpbpBhJDB7pSvaJeft/6cwui1TrXPqlOVDSQRMlG/UvxxMJDliYnlqSBkoOaIK8WhOunGFwKSAVk5MzTsgrQYWXlkzc4yceftyP8KTD3iN5DE2KcLJW4NsSe5WBhvEgWsjsEmk93kBkbWXAyuUo0SAtO78q5bb0fIl0Hy+7/KPfqh/MN2MXYKW+MxCP24uQU=
+  on:
+    tags: true
+    repo: kellyselden/eslint-plugin-json-files
