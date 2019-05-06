@@ -58,6 +58,7 @@ eslint --ext json .
 | [json-files/require-engines](./docs/rules/require-engines.md) | require the engines field in package.json |  |
 | [json-files/require-license](./docs/rules/require-license.md) | require a license in package.json |  |
 | [json-files/restrict-ranges](./docs/rules/restrict-ranges.md) | restrict the dependency ranges in package.json |  |
+| [json-files/sort-package-json](./docs/rules/sort-package-json.md) | enforce package.json sorting |  |
 
 ## Footnotes
 
