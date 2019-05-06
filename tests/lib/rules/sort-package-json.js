@@ -18,7 +18,28 @@ new RuleTester().run('sort-package-json', rule, preprocess({
       errors: [{
         message: 'package.json is not sorted correctly.',
         type: 'ObjectExpression'
-      }]
+      }],
+      output: `{
+  "name": "foo",
+  "version": "1.0.0"
+}`
+    },
+    // preserves leading and trailing whitespace
+    {
+      code: `
+{ "version": "1.0.0", "name": "foo" }
+`,
+      filename: 'package.json',
+      errors: [{
+        message: 'package.json is not sorted correctly.',
+        type: 'ObjectExpression'
+      }],
+      output: `
+{
+  "name": "foo",
+  "version": "1.0.0"
+}
+`
     }
   ]
 }));
