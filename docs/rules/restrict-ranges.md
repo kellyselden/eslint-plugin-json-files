@@ -53,6 +53,7 @@ This rule has either an object option:
   * `"tilde"` include `~` or pinned
   * `"carat"` include `^`, `~`, or pinned
 * `"versionRegex"` limit the range using a regular expression
+* `"pinUnstable"` no version hints for 0.x.x or prerelease
 
 Or an array of the object option above
 

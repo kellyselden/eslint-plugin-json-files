@@ -80,6 +80,18 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
           { packageRegex: 'foo', versionHint: 'pin' }
         ]]
       }
+    ],
+    ...[ // pinUnstable
+      {
+        code: '{ "dependencies": { "foo": "0.1.2", "bar": "^1.2.3" } }',
+        filename: 'package.json',
+        options: [{ pinUnstable: true }]
+      },
+      {
+        code: '{ "dependencies": { "foo": "1.2.3-alpha.0", "bar": "^1.2.3" } }',
+        filename: 'package.json',
+        options: [{ pinUnstable: true }]
+      }
     ]
   ],
   invalid: [
@@ -166,6 +178,26 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         ]],
         errors: [{
           message: 'Invalid SemVer hint (pin).',
+          type: 'Literal'
+        }]
+      }
+    ],
+    ...[ // pinUnstable
+      {
+        code: '{ "dependencies": { "foo": "^0.1.2", "bar": "^1.2.3" } }',
+        filename: 'package.json',
+        options: [{ pinUnstable: true }],
+        errors: [{
+          message: 'Invalid SemVer hint on unstable.',
+          type: 'Literal'
+        }]
+      },
+      {
+        code: '{ "dependencies": { "foo": "^1.2.3-alpha.0", "bar": "^1.2.3" } }',
+        filename: 'package.json',
+        options: [{ pinUnstable: true }],
+        errors: [{
+          message: 'Invalid SemVer hint on unstable.',
           type: 'Literal'
         }]
       }
