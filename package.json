@@ -10,7 +10,7 @@
   "author": "Kelly Selden",
   "main": "lib/index.js",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint . --ext js,json",
     "test": "mocha tests --recursive"
   },
   "repository": {
@@ -25,7 +25,8 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "eslint": "^5.16.0",
-    "eslint-config-sane": "^0.8.0",
+    "eslint-config-sane": "0.8.2",
+    "eslint-plugin-json-files": "file://.",
     "eslint-plugin-mocha": "^5.3.0",
     "eslint-plugin-node": "^9.0.1",
     "eslint-plugin-prefer-let": "^1.0.1",
