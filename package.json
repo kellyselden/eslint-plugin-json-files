@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/kellyselden/eslint-plugin-json-files.git"
+    "url": "git+ssh://git@github.com/kellyselden/eslint-plugin-json-files.git"
   },
   "dependencies": {
     "requireindex": "^1.2.0",
