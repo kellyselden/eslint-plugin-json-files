@@ -27,7 +27,7 @@
     "eslint": "^5.16.0",
     "eslint-config-sane": "0.8.2",
     "eslint-plugin-json-files": "file://.",
-    "eslint-plugin-mocha": "^5.3.0",
+    "eslint-plugin-mocha": "^6.0.0",
     "eslint-plugin-node": "^9.0.1",
     "eslint-plugin-prefer-let": "^1.0.1",
     "mocha": "^6.1.4",
