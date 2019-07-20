@@ -2,27 +2,21 @@
 
 const { expect } = require('chai');
 const { CLIEngine } = require('eslint');
-const plugin = require('../../../lib');
-
-function initCLI() {
-  let cli = new CLIEngine({
-    extensions: ['json'],
-    ignore: false,
-    rules: {
-      'quote-props': [2, 'as-needed'],
-      'json-files/require-license': [2]
-    },
-    useEslintrc: false
-  });
-  cli.addPlugin('json-files', plugin);
-  return cli;
-}
 
 describe('plugin', function() {
   let cli;
 
   before(function() {
-    cli = initCLI();
+    cli = new CLIEngine({
+      extensions: ['json'],
+      ignore: false,
+      rules: {
+        'quote-props': [2, 'as-needed'],
+        'json-files/require-license': [2]
+      },
+      useEslintrc: false,
+      plugins: ['json-files']
+    });
   });
 
   it('should run plugin on .json files', function() {
