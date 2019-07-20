@@ -1,0 +1,3 @@
+eslint:
+  versions: ">=5"
+  commands: mocha tests --recursive
