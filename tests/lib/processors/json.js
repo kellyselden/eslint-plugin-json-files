@@ -51,6 +51,7 @@ describe('plugin', function() {
     expect(report.results[0].messages.length).to.equal(0);
   });
 
+  // eslint-disable-next-line mocha/no-skipped-tests
   it.skip('should run js rules on .json files', function() {
     let text = `{
   "license": "MIT"

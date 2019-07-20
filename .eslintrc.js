@@ -25,9 +25,9 @@ module.exports = {
       plugins: [
         'mocha'
       ],
-      rules: {
-        'mocha/no-exclusive-tests': 'error'
-      }
+      rules: Object.assign({}, require('eslint-plugin-mocha').configs.recommended.rules, {
+        // add your custom rules and overrides for node files here
+      })
     }
   ]
 };
