@@ -4,15 +4,10 @@ module.exports = {
     ecmaVersion: 2018
   },
   env: {
-    es6: true,
-    node: true
+    es6: true
   },
-  plugins: [
-    'node'
-  ],
   extends: [
-    'sane',
-    'plugin:node/recommended'
+    'sane-node'
   ],
   rules: {
   },
@@ -25,7 +20,9 @@ module.exports = {
       plugins: [
         'mocha'
       ],
-      rules: require('eslint-plugin-mocha').configs.recommended.rules
+      extends: [
+        'plugin:node/recommended'
+      ]
     }
   ]
 };
