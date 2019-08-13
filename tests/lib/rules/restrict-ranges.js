@@ -79,6 +79,15 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
           { packages: ['foo'], versionHint: 'pin' },
           { packageRegex: 'foo', versionHint: 'pin' }
         ]]
+      },
+      // stop searching on first match
+      {
+        code: '{ "dependencies": { "foo": "^1.2.3" } }',
+        filename: 'package.json',
+        options: [[
+          { versionRegex: '^' },
+          { versionRegex: '~' }
+        ]]
       }
     ],
     ...[ // pinUnstable
@@ -174,7 +183,7 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         filename: 'package.json',
         options: [[
           { packages: ['foo'], versionHint: 'carat' },
-          { packageRegex: 'foo', versionHint: 'pin' }
+          { packageRegex: 'bar', versionHint: 'pin' }
         ]],
         errors: [{
           message: 'Invalid SemVer hint (pin).',
