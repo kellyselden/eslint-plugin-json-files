@@ -9,7 +9,7 @@ This rule aims to prevent too liberal of version ranges or branches.
 
 Examples of **incorrect** code for this rule:
 
-```json
+```js
 /* eslint restrict-ranges: [{ versionHint: "pin' }] */
 
 {
@@ -19,7 +19,7 @@ Examples of **incorrect** code for this rule:
 }
 ```
 
-```json
+```js
 /* eslint restrict-ranges: [{ versionRegex: "^[^#]+$' }] */
 
 {
@@ -31,7 +31,7 @@ Examples of **incorrect** code for this rule:
 
 Examples of **correct** code for this rule:
 
-```json
+```js
 /* eslint restrict-ranges: [{ versionHint: "pin' }] */
 
 {
