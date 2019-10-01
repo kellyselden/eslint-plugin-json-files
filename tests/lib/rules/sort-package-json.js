@@ -40,6 +40,26 @@ preprocess.applyAutofixWorkaround(new RuleTester()).run('sort-package-json', rul
   "version": "1.0.0"
 }
 `
+    },
+    // preserves existing indentation
+    {
+      code: `
+{
+    "version": "1.0.0",
+    "name": "foo"
+}
+`,
+      filename: 'package.json',
+      errors: [{
+        message: 'package.json is not sorted correctly.',
+        type: 'ObjectExpression'
+      }],
+      output: `
+{
+    "name": "foo",
+    "version": "1.0.0"
+}
+`
     }
   ]
 }));
