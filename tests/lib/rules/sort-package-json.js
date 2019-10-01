@@ -7,13 +7,27 @@ const preprocess = require('../../helpers/preprocess');
 preprocess.applyAutofixWorkaround(new RuleTester()).run('sort-package-json', rule, preprocess({
   valid: [
     {
-      code: '{ "name": "foo", "version": "1.0.0" }',
+      code: '{"name":"foo","version":"1.0.0"}',
       filename: 'package.json'
     }
   ],
   invalid: [
     {
-      code: '{ "version": "1.0.0", "name": "foo" }',
+      code: '{"version":"1.0.0","name":"foo"}',
+      filename: 'package.json',
+      errors: [{
+        message: 'package.json is not sorted correctly.',
+        type: 'ObjectExpression'
+      }],
+      output: '{"name":"foo","version":"1.0.0"}'
+    },
+    // preserves trailing whitespace
+    {
+      code: `{
+  "version": "1.0.0",
+  "name": "foo"
+}
+`,
       filename: 'package.json',
       errors: [{
         message: 'package.json is not sorted correctly.',
@@ -22,44 +36,24 @@ preprocess.applyAutofixWorkaround(new RuleTester()).run('sort-package-json', rul
       output: `{
   "name": "foo",
   "version": "1.0.0"
-}`
-    },
-    // preserves leading and trailing whitespace
-    {
-      code: `
-{ "version": "1.0.0", "name": "foo" }
-`,
-      filename: 'package.json',
-      errors: [{
-        message: 'package.json is not sorted correctly.',
-        type: 'ObjectExpression'
-      }],
-      output: `
-{
-  "name": "foo",
-  "version": "1.0.0"
 }
 `
     },
     // preserves existing indentation
     {
-      code: `
-{
+      code: `{
     "version": "1.0.0",
     "name": "foo"
-}
-`,
+}`,
       filename: 'package.json',
       errors: [{
         message: 'package.json is not sorted correctly.',
         type: 'ObjectExpression'
       }],
-      output: `
-{
+      output: `{
     "name": "foo",
     "version": "1.0.0"
-}
-`
+}`
     }
   ]
 }));
