@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "requireindex": "^1.2.0",
-    "semver": "^6.0.0",
+    "semver": "^7.0.0",
     "sort-package-json": "^1.22.1"
   },
   "devDependencies": {
