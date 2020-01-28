@@ -29,7 +29,7 @@
     "eslint-config-sane-node": "0.3.0",
     "eslint-plugin-json-files": "file://.",
     "eslint-plugin-mocha": "^6.0.0",
-    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-prefer-let": "^1.0.1",
     "mocha": "^6.1.4",
     "renovate-config-standard": "^2.0.0"
