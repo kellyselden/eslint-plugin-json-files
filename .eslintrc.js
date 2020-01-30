@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   root: true,
   parserOptions: {
@@ -9,11 +11,11 @@ module.exports = {
   extends: [
     'sane-node'
   ],
-  rules: {
-  },
   overrides: [
     {
-      files: ['tests/**/*.js'],
+      files: [
+        'tests/**/*.js'
+      ],
       env: {
         mocha: true
       },
@@ -21,8 +23,11 @@ module.exports = {
         'mocha'
       ],
       extends: [
-        'plugin:node/recommended'
-      ]
+        'plugin:mocha/recommended'
+      ],
+      rules: {
+        'mocha/no-exclusive-tests': 'error'
+      }
     }
   ]
 };

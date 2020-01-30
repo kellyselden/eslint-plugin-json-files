@@ -10,6 +10,19 @@
           "isBaseBlueprint": true
         }
       ]
+    },
+    {
+      "name": "@kellyselden/node-template",
+      "version": "0.9.2",
+      "blueprints": [
+        {
+          "name": "@kellyselden/node-template",
+          "options": [
+            "--repo-slug=kellyselden/eslint-plugin-json-files",
+            "--ci-provider=travis-ci"
+          ]
+        }
+      ]
     }
   ]
 }
