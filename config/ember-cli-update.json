@@ -19,7 +19,7 @@
           "name": "@kellyselden/node-template",
           "options": [
             "--repo-slug=kellyselden/eslint-plugin-json-files",
-            "--ci-provider=travis-ci"
+            "--travis-ci"
           ]
         }
       ]
