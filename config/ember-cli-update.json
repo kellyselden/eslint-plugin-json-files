@@ -19,7 +19,8 @@
           "name": "@kellyselden/node-template",
           "options": [
             "--repo-slug=kellyselden/eslint-plugin-json-files",
-            "--travis-ci"
+            "--travis-ci",
+            "--renovate"
           ]
         }
       ]
