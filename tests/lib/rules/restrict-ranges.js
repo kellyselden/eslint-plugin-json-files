@@ -91,6 +91,31 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         code: '{ "dependencies": { "foo": "1.2.3-alpha.0", "bar": "^1.2.3" } }',
         filename: 'package.json',
         options: [{ pinUnstable: true }]
+      },
+      {
+        code: '{ "dependencies": { "foo": "*" } }',
+        filename: 'package.json',
+        options: [{ pinUnstable: true }]
+      },
+      {
+        code: '{ "dependencies": { "foo": "" } }',
+        filename: 'package.json',
+        options: [{ pinUnstable: true }]
+      },
+      {
+        code: '{ "dependencies": { "foo": ">= 1" } }',
+        filename: 'package.json',
+        options: [{ pinUnstable: true }]
+      },
+      {
+        code: '{ "dependencies": { "foo": ">= 1 < 2" } }',
+        filename: 'package.json',
+        options: [{ pinUnstable: true }]
+      },
+      {
+        code: '{ "dependencies": { "foo": "1 || 2" } }',
+        filename: 'package.json',
+        options: [{ pinUnstable: true }]
       }
     ],
     // stop searching on first match
@@ -203,6 +228,33 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
       },
       {
         code: '{ "dependencies": { "foo": "^1.2.3-alpha.0", "bar": "^1.2.3" } }',
+        filename: 'package.json',
+        options: [{ pinUnstable: true }],
+        errors: [{
+          message: 'Invalid SemVer hint on unstable.',
+          type: 'Literal'
+        }]
+      },
+      {
+        code: '{ "dependencies": { "foo": ">= 0.1.1" } }',
+        filename: 'package.json',
+        options: [{ pinUnstable: true }],
+        errors: [{
+          message: 'Invalid SemVer hint on unstable.',
+          type: 'Literal'
+        }]
+      },
+      {
+        code: '{ "dependencies": { "foo": ">= 0.1.1 < 1" } }',
+        filename: 'package.json',
+        options: [{ pinUnstable: true }],
+        errors: [{
+          message: 'Invalid SemVer hint on unstable.',
+          type: 'Literal'
+        }]
+      },
+      {
+        code: '{ "dependencies": { "foo": "0.1 || 1" } }',
         filename: 'package.json',
         options: [{ pinUnstable: true }],
         errors: [{
