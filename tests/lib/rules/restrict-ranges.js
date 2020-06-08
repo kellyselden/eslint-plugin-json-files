@@ -171,6 +171,24 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
           message: 'Invalid SemVer hint (pin).',
           type: 'Literal'
         }]
+      },
+      {
+        code: '{ "dependencies": { "foo": "*" } }',
+        filename: 'package.json',
+        options: [{ versionHint: 'carat' }],
+        errors: [{
+          message: 'Invalid SemVer hint (carat).',
+          type: 'Literal'
+        }]
+      },
+      {
+        code: '{ "dependencies": { "foo": "*" } }',
+        filename: 'package.json',
+        options: [{ versionHint: 'caret' }],
+        errors: [{
+          message: 'Invalid SemVer hint (caret).',
+          type: 'Literal'
+        }]
       }
     ],
     ...[ // versionRegex
