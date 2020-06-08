@@ -51,7 +51,7 @@ This rule has either an object option:
 * `"versionHint"` limit the range using semver hints
   * `"pin"` no version hints
   * `"tilde"` include `~` or pinned
-  * `"carat"` include `^`, `~`, or pinned
+  * `"caret"` include `^`, `~`, or pinned
 * `"versionRegex"` limit the range using a regular expression
 * `"pinUnstable"` no version hints for 0.x.x or prerelease
 

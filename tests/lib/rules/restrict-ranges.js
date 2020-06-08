@@ -28,6 +28,21 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         options: [{ versionHint: 'carat' }]
       },
       {
+        code: '{ "dependencies": { "foo": "^1.2.3" } }',
+        filename: 'package.json',
+        options: [{ versionHint: 'caret' }]
+      },
+      {
+        code: '{ "dependencies": { "foo": "~1.2.3" } }',
+        filename: 'package.json',
+        options: [{ versionHint: 'caret' }]
+      },
+      {
+        code: '{ "dependencies": { "foo": "1.2.3" } }',
+        filename: 'package.json',
+        options: [{ versionHint: 'caret' }]
+      },
+      {
         code: '{ "dependencies": { "foo": "~1.2.3" } }',
         filename: 'package.json',
         options: [{ versionHint: 'tilde' }]
@@ -208,6 +223,18 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         filename: 'package.json',
         options: [[
           { packages: ['foo'], versionHint: 'carat' },
+          { packageRegex: 'bar', versionHint: 'pin' }
+        ]],
+        errors: [{
+          message: 'Invalid SemVer hint (pin).',
+          type: 'Literal'
+        }]
+      },
+      {
+        code: '{ "dependencies": { "foo": "^1.2.3", "bar": "^1.2.3" } }',
+        filename: 'package.json',
+        options: [[
+          { packages: ['foo'], versionHint: 'caret' },
           { packageRegex: 'bar', versionHint: 'pin' }
         ]],
         errors: [{
