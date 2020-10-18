@@ -9,13 +9,20 @@ branches:
 cache:
   directories:
   - "$HOME/.npm"
+stages:
+- lint
+- test
+- name: ember-cli-update
+  if: branch = master AND type = pull_request
+- name: deploy
+  if: tag IS present
 jobs:
   include:
-  - name: test
-    before_script:
+  - stage: lint
+    script:
     - npm run lint
-  - if: branch = master AND type = pull_request
-    name: ember-cli-update
+  - stage: test
+  - stage: ember-cli-update
     script:
     - git checkout $TRAVIS_PULL_REQUEST_SHA
     - git checkout -B $TRAVIS_PULL_REQUEST_BRANCH
@@ -25,8 +32,7 @@ jobs:
       --pull-request-url https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST
       --autofix-command "npm run lint -- --fix"
       --ignore-to
-  - if: tag IS present
-    name: deploy
+  - stage: deploy
     install: ignore
     script: ignore
     deploy:
