@@ -13,13 +13,13 @@
     },
     {
       "name": "@kellyselden/node-template",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "blueprints": [
         {
           "name": "@kellyselden/node-template",
           "options": [
             "--repo-slug=kellyselden/eslint-plugin-json-files",
-            "--travis-ci",
+            "--github-actions",
             "--renovate"
           ]
         }

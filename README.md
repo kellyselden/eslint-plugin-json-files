@@ -1,7 +1,6 @@
 # eslint-plugin-json-files
 
 [![npm version](https://badge.fury.io/js/eslint-plugin-json-files.svg)](https://badge.fury.io/js/eslint-plugin-json-files)
-[![Build Status](https://travis-ci.org/kellyselden/eslint-plugin-json-files.svg?branch=master)](https://travis-ci.org/kellyselden/eslint-plugin-json-files)
 
 ESLint JSON processor and rules
 
