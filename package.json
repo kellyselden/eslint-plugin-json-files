@@ -18,6 +18,7 @@
     "url": "git+ssh://git@github.com/kellyselden/eslint-plugin-json-files.git"
   },
   "dependencies": {
+    "ajv": "^8.2.0",
     "requireindex": "^1.2.0",
     "semver": "^7.0.0",
     "sort-package-json": "^1.22.1"
