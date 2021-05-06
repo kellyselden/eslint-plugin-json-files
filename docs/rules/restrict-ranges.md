@@ -10,7 +10,7 @@ This rule aims to prevent too liberal of version ranges or branches.
 Examples of **incorrect** code for this rule:
 
 ```js
-/* eslint restrict-ranges: [{ versionHint: "pin' }] */
+/* eslint restrict-ranges: [{ versionHint: 'pin' }] */
 
 {
   "dependencies": {
@@ -20,7 +20,7 @@ Examples of **incorrect** code for this rule:
 ```
 
 ```js
-/* eslint restrict-ranges: [{ versionRegex: "^[^#]+$' }] */
+/* eslint restrict-ranges: [{ versionRegex: '^[^#]+$' }] */
 
 {
   "dependencies": {
@@ -32,7 +32,7 @@ Examples of **incorrect** code for this rule:
 Examples of **correct** code for this rule:
 
 ```js
-/* eslint restrict-ranges: [{ versionHint: "pin' }] */
+/* eslint restrict-ranges: [{ versionHint: 'pin' }] */
 
 {
   "dependencies": {
