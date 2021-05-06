@@ -58,6 +58,7 @@ eslint . --ext js,json
 | [json-files/require-license](./docs/rules/require-license.md) | require a license in package.json |
 | [json-files/restrict-ranges](./docs/rules/restrict-ranges.md) | restrict the dependency ranges in package.json |
 | [json-files/sort-package-json](./docs/rules/sort-package-json.md) | enforce package.json sorting |
+| [json-files/validate-schema](./docs/rules/validate-schema.md) | require a valid JSON Schema |
 
 ## Footnotes
 
