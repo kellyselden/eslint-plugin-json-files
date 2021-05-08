@@ -36,7 +36,7 @@
     "mocha": "^8.3.2",
     "mocha-helpers": "^5.1.1",
     "renovate-config-standard": "2.1.2",
-    "standard-node-template": "1.0.0"
+    "standard-node-template": "2.0.0"
   },
   "peerDependencies": {
     "eslint": ">=5"
