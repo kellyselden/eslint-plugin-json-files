@@ -15,21 +15,6 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
       {
         code: '{ "dependencies": { "foo": "^1.2.3" } }',
         filename: 'package.json',
-        options: [{ versionHint: 'carat' }]
-      },
-      {
-        code: '{ "dependencies": { "foo": "~1.2.3" } }',
-        filename: 'package.json',
-        options: [{ versionHint: 'carat' }]
-      },
-      {
-        code: '{ "dependencies": { "foo": "1.2.3" } }',
-        filename: 'package.json',
-        options: [{ versionHint: 'carat' }]
-      },
-      {
-        code: '{ "dependencies": { "foo": "^1.2.3" } }',
-        filename: 'package.json',
         options: [{ versionHint: 'caret' }]
       },
       {
@@ -175,15 +160,6 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
       {
         code: '{ "dependencies": { "foo": "*" } }',
         filename: 'package.json',
-        options: [{ versionHint: 'carat' }],
-        errors: [{
-          message: 'Invalid SemVer hint (carat).',
-          type: 'Literal'
-        }]
-      },
-      {
-        code: '{ "dependencies": { "foo": "*" } }',
-        filename: 'package.json',
         options: [{ versionHint: 'caret' }],
         errors: [{
           message: 'Invalid SemVer hint (caret).',
@@ -236,18 +212,6 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
       }
     ],
     ...[ // grouping
-      {
-        code: '{ "dependencies": { "foo": "^1.2.3", "bar": "^1.2.3" } }',
-        filename: 'package.json',
-        options: [[
-          { packages: ['foo'], versionHint: 'carat' },
-          { packageRegex: 'bar', versionHint: 'pin' }
-        ]],
-        errors: [{
-          message: 'Invalid SemVer hint (pin).',
-          type: 'Literal'
-        }]
-      },
       {
         code: '{ "dependencies": { "foo": "^1.2.3", "bar": "^1.2.3" } }',
         filename: 'package.json',
