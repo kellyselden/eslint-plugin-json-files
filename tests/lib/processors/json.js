@@ -34,6 +34,34 @@ describe(function() {
     expect(report.results[0].messages[0].line).to.equal(1);
   });
 
+  it('should fix issues in .json files', function() {
+    let fixerCli = new CLIEngine({
+      extensions: ['json'],
+      ignore: false,
+      rules: {
+        'json-files/sort-package-json': [2]
+      },
+      useEslintrc: false,
+      plugins: ['json-files'],
+      fix: true
+    });
+
+    let text = `{
+  "version": "1.0.0",
+  "name": "foo"
+}
+`;
+
+    let report = fixerCli.executeOnText(text, 'package.json');
+
+    expect(report.results.length).to.equal(1);
+    expect(report.results[0].output).to.equal(`{
+  "name": "foo",
+  "version": "1.0.0"
+}
+`);
+  });
+
   it('should ignore js rules on .json files', function() {
     let text = `{
   "license": "MIT"
