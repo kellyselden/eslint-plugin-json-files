@@ -53,6 +53,7 @@ eslint . --ext js,json
 
 | Rule ID | Description |
 |:--------|:------------|
+| [json-files/ensure-repository-directory](./docs/rules/ensure-repository-directory.md) | ensure repository/directory in package.json |
 | [json-files/no-branch-in-dependencies](./docs/rules/no-branch-in-dependencies.md) | prevent branches in package.json dependencies |
 | [json-files/require-engines](./docs/rules/require-engines.md) | require the engines field in package.json |
 | [json-files/require-license](./docs/rules/require-license.md) | require a license in package.json |
