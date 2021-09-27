@@ -57,6 +57,7 @@ eslint . --ext js,json
 | [json-files/no-branch-in-dependencies](./docs/rules/no-branch-in-dependencies.md) | prevent branches in package.json dependencies |
 | [json-files/require-engines](./docs/rules/require-engines.md) | require the engines field in package.json |
 | [json-files/require-license](./docs/rules/require-license.md) | require a license in package.json |
+| [json-files/require-unique-dependency-names](./docs/rules/require-unique-dependency-names.md) | prevent duplicate packages in dependencies and devDependencies |
 | [json-files/restrict-ranges](./docs/rules/restrict-ranges.md) | restrict the dependency ranges in package.json |
 | [json-files/sort-package-json](./docs/rules/sort-package-json.md) | enforce package.json sorting |
 | [json-files/validate-schema](./docs/rules/validate-schema.md) | require a valid JSON Schema |
