@@ -28,7 +28,36 @@ new RuleTester().run('require-unique-dependency-names', rule, preprocess({
       errors: [{
         message: 'Package "foo" already shows up in "dependencies".',
         type: 'Literal'
-      }]
+      }],
+      output: '{ "dependencies": { "foo": "0.0.0" }, "devDependencies": {} }'
+    },
+    {
+      code: '{ "dependencies": { "foo": "0.0.0" }, "devDependencies": { "foo": "0.0.0", "bar": "0.0.0" } }',
+      filename: 'package.json',
+      errors: [{
+        message: 'Package "foo" already shows up in "dependencies".',
+        type: 'Literal'
+      }],
+      output: '{ "dependencies": { "foo": "0.0.0" }, "devDependencies": { "bar": "0.0.0" } }'
+    },
+    {
+      code: '{ "dependencies": { "bar": "0.0.0" }, "devDependencies": { "foo": "0.0.0", "bar": "0.0.0" } }',
+      filename: 'package.json',
+      errors: [{
+        message: 'Package "bar" already shows up in "dependencies".',
+        type: 'Literal'
+      }],
+      output: '{ "dependencies": { "bar": "0.0.0" }, "devDependencies": { "foo": "0.0.0" } }'
+    },
+    // it doesn't autofix if different versions
+    {
+      code: '{ "dependencies": { "foo": "0.0.0" }, "devDependencies": { "foo": "1.0.0" } }',
+      filename: 'package.json',
+      errors: [{
+        message: 'Package "foo" already shows up in "dependencies".',
+        type: 'Literal'
+      }],
+      output: '{ "dependencies": { "foo": "0.0.0" }, "devDependencies": { "foo": "1.0.0" } }'
     }
   ]
 }));
