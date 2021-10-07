@@ -4,7 +4,7 @@ const { RuleTester } = require('eslint');
 const rule = require('../../../lib/rules/sort-package-json');
 const preprocess = require('../../helpers/preprocess');
 
-preprocess.applyAutofixWorkaround(new RuleTester()).run('sort-package-json', rule, preprocess({
+new RuleTester().run('sort-package-json', rule, preprocess({
   valid: [
     {
       code: '{"name":"foo","version":"1.0.0"}',
