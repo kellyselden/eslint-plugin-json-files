@@ -24,7 +24,7 @@
     "sort-package-json": "^1.22.1"
   },
   "devDependencies": {
-    "@kellyselden/node-template": "2.1.0",
+    "@kellyselden/node-template": "2.1.1",
     "chai": "^4.3.4",
     "eslint": "^8.0.0",
     "eslint-config-sane": "1.0.0",
