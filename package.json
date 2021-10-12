@@ -27,7 +27,7 @@
     "@kellyselden/node-template": "2.1.1",
     "chai": "^4.3.4",
     "eslint": "^8.0.0",
-    "eslint-config-sane": "1.0.0",
+    "eslint-config-sane": "1.0.1",
     "eslint-config-sane-node": "1.1.0",
     "eslint-plugin-json-files": "file://.",
     "eslint-plugin-mocha": "^9.0.0",
