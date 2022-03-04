@@ -14,7 +14,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
       with:
-        node-version: 14
+        node-version: 16
 
     - run: npm ci
     - run: npm run lint
@@ -27,7 +27,7 @@ jobs:
         os:
         - ubuntu-latest
         node:
-        - 12
+        - 16
 
     runs-on: ${{ matrix.os }}
 
@@ -53,7 +53,7 @@ jobs:
         token: ${{ secrets.GitHubToken }}
     - uses: actions/setup-node@v2
       with:
-        node-version: 14
+        node-version: 16
 
     - uses: kellyselden/ember-cli-update-action@v3
       with:

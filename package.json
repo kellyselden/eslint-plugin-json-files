@@ -11,7 +11,7 @@
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint . --ext js,json",
-    "test": "mocha"
+    "test": "mocha tests --recursive"
   },
   "repository": {
     "type": "git",
@@ -24,12 +24,12 @@
     "sort-package-json": "^1.22.1"
   },
   "devDependencies": {
-    "@kellyselden/node-template": "2.2.0",
+    "@kellyselden/node-template": "2.1.1",
     "chai": "^4.3.4",
     "eslint": "^8.0.0",
     "eslint-config-sane": "^1.0.0",
     "eslint-config-sane-node": "^1.1.0",
-    "eslint-plugin-json-files": "file://.",
+    "eslint-plugin-json-files": "file:",
     "eslint-plugin-mocha": "^9.0.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prefer-let": "^1.1.0",
