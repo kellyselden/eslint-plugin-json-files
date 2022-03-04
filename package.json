@@ -11,7 +11,7 @@
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint . --ext js,json",
-    "test": "mocha tests --recursive"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
