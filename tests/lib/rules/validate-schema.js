@@ -5,6 +5,13 @@ const rule = require('../../../lib/rules/validate-schema');
 const preprocess = require('../../helpers/preprocess');
 const stripAnsi = require('strip-ansi');
 
+function schema(json) {
+  return JSON.stringify({
+    '$schema': 'http://json-schema.org/draft-07/schema#',
+    ...json
+  });
+}
+
 function color(s) {
   return process.stdout.isTTY ? s : stripAnsi(s);
 }
@@ -14,8 +21,7 @@ new RuleTester().run('validate-schema', rule, preprocess({
     {
       code: '{"foo":"bar"}',
       options: [{
-        schema: JSON.stringify({
-          '$schema': 'http://json-schema.org/draft-07/schema#',
+        schema: schema({
           'type': 'object',
           'properties': {
             'foo': { 'type': 'string' }
@@ -28,8 +34,7 @@ new RuleTester().run('validate-schema', rule, preprocess({
     {
       code: '{"foo":"bar"}',
       options: [{
-        schema: JSON.stringify({
-          '$schema': 'http://json-schema.org/draft-07/schema#',
+        schema: schema({
           'type': 'object',
           'not': { 'required': ['foo'] }
         })
