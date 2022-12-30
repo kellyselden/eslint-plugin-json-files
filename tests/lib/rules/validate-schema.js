@@ -43,6 +43,20 @@ new RuleTester().run('validate-schema', rule, preprocess({
         message: color('[31m[1mNOT[22m[39m[31m must NOT be valid[39m\n\n[0m[31m[1m>[22m[39m[90m 1 |[39m {[32m"foo"[39m[33m:[39m[32m"bar"[39m}[0m\n[0m [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m [31m[1m👈🏽  [95mnot[31m must NOT be valid[22m[39m[0m'),
         type: 'ObjectExpression'
       }]
+    },
+    {
+      code: '{"foo":"bar"}',
+      options: [{
+        schema: schema({
+          'type': 'object',
+          'not': { 'required': ['foo'] }
+        }),
+        prettyErrors: false
+      }],
+      errors: [{
+        message: '#/not must NOT be valid',
+        type: 'ObjectExpression'
+      }]
     }
   ]
 }));

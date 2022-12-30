@@ -46,6 +46,7 @@ Examples of **correct** code for this rule:
 An options object of:
 
 * `"schema"` a string of your JSON Schema
+* `"prettyErrors"` on by default. Set this to false if you want more machine-readable errors.
 
 ## When Not To Use It
 
