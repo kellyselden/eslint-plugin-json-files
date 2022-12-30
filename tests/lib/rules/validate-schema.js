@@ -13,7 +13,6 @@ new RuleTester().run('validate-schema', rule, preprocess({
   valid: [
     {
       code: '{"foo":"bar"}',
-      filename: 'package.json',
       options: [{
         schema: JSON.stringify({
           '$schema': 'http://json-schema.org/draft-07/schema#',
@@ -28,7 +27,6 @@ new RuleTester().run('validate-schema', rule, preprocess({
   invalid: [
     {
       code: '{"foo":"bar"}',
-      filename: 'package.json',
       options: [{
         schema: JSON.stringify({
           '$schema': 'http://json-schema.org/draft-07/schema#',
