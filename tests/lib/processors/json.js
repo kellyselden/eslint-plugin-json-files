@@ -42,7 +42,7 @@ describe(function() {
       ignore: false,
       overrideConfig: {
         rules: {
-          'json-files/sort-package-json': ['error', { sortOrder: ['name', 'version', 'unlicensed'] }]
+          'json-files/sort-package-json': ['error', { sortOrder: ['name', 'version', 'license'] }]
         },
         plugins: ['json-files']
       },
