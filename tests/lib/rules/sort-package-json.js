@@ -54,6 +54,17 @@ new RuleTester().run('sort-package-json', rule, preprocess({
     "name": "foo",
     "version": "1.0.0"
 }`
+    },
+    // accepts and uses options
+    {
+      code: '{"version":"1.0.0","name":"foo","license":"UNLICENSED"}',
+      filename: 'package.json',
+      options: [{ sortOrder: ['license', 'name'] }],
+      errors: [{
+        message: 'package.json is not sorted correctly.',
+        type: 'ObjectExpression'
+      }],
+      output: '{"license":"UNLICENSED","name":"foo","version":"1.0.0"}'
     }
   ]
 }));
