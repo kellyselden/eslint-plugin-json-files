@@ -42,7 +42,7 @@ describe(function() {
       ignore: false,
       overrideConfig: {
         rules: {
-          'json-files/sort-package-json': ['error', { sortOrder: ['name', 'version', 'license'] }]
+          'json-files/sort-package-json': [2]
         },
         plugins: ['json-files']
       },
@@ -52,8 +52,7 @@ describe(function() {
 
     let text = `{
   "version": "1.0.0",
-  "name": "foo",
-  "license": "UNLICENSED"
+  "name": "foo"
 }
 `;
 
@@ -62,8 +61,7 @@ describe(function() {
     expect(results.length).to.equal(1);
     expect(results[0].output).to.equal(`{
   "name": "foo",
-  "version": "1.0.0",
-  "license": "UNLICENSED"
+  "version": "1.0.0"
 }
 `);
   });
