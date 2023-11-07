@@ -2,7 +2,6 @@
 
 Use [sort-package-json](https://www.npmjs.com/package/sort-package-json) to keep your keys in a predictable order.
 
-
 ## Rule Details
 
 This rule aims to enforce sorting.
@@ -27,7 +26,7 @@ Examples of **correct** code for this rule:
 
 ### Options
 
-
+Same as <https://github.com/keithamus/sort-package-json>.
 
 ## When Not To Use It
 
@@ -35,4 +34,4 @@ If you don't like the defaults of `sort-package-json`, you may not want this rul
 
 ## Further Reading
 
-https://github.com/keithamus/sort-package-json
+<https://github.com/keithamus/sort-package-json>
