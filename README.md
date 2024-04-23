@@ -55,6 +55,7 @@ eslint . --ext js,json
 |:--------|:------------|
 | [json-files/ensure-repository-directory](./docs/rules/ensure-repository-directory.md) | ensure repository/directory in package.json |
 | [json-files/ensure-volta-extends](./docs/rules/ensure-volta-extends.md) | ensure volta-extends in package.json |
+| [json-files/ensure-workspaces](./docs/rules/ensure-workspaces.md) | ensure workspace globs in package.json resolve to directories |
 | [json-files/eol-last](./docs/rules/eol-last.md) | require or disallow newline at the end of package.json |
 | [json-files/no-branch-in-dependencies](./docs/rules/no-branch-in-dependencies.md) | prevent branches in package.json dependencies |
 | [json-files/require-engines](./docs/rules/require-engines.md) | require the engines field in package.json |
