@@ -47,6 +47,7 @@ An options object of:
 
 * `"schema"` a string of your JSON Schema
 * `"prettyErrors"` on by default. Set this to false if you want more machine-readable errors.
+* `"avjFixerOptions"` if you want to autofix some issues. Use this for supported fixers https://ajv.js.org/options.html#options-to-modify-validated-data.
 
 ## When Not To Use It
 
