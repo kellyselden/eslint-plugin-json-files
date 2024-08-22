@@ -45,8 +45,7 @@ new RuleTester().run('validate-schema', rule, preprocess({
       }],
       output: `{
   "foo": "bar"
-}
-`
+}`
     },
     {
       code: '{"foo":"bar"}',
@@ -63,8 +62,7 @@ new RuleTester().run('validate-schema', rule, preprocess({
       }],
       output: `{
   "foo": "bar"
-}
-`
+}`
     },
     {
       code: '{"foo":"bar","bar":"foo"}',
@@ -89,8 +87,7 @@ new RuleTester().run('validate-schema', rule, preprocess({
       }],
       output: `{
   "foo": "bar"
-}
-`
+}`
     }
   ]
 }));
