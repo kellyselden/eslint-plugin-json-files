@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-json-files",
-  "version": "4.4.2",
+  "version": "5.0.0",
   "description": "ESLint JSON processor and rules",
   "keywords": [
     "eslint",
