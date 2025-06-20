@@ -45,7 +45,7 @@
     "eslint": ">=5"
   },
   "engines": {
-    "node": ">=18.12"
+    "node": ">=20.9"
   },
   "license": "MIT",
   "files": [
