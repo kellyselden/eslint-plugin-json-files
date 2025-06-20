@@ -3,7 +3,7 @@
 const { RuleTester } = require('eslint');
 const rule = require('../../../lib/rules/validate-schema');
 const preprocess = require('../../helpers/preprocess');
-const stripAnsi = require('strip-ansi');
+// const stripAnsi = require('strip-ansi');
 
 function schema(json) {
   return JSON.stringify({
@@ -13,7 +13,8 @@ function schema(json) {
 }
 
 function color(s) {
-  return process.stdout.isTTY ? s : stripAnsi(s);
+  // return process.stdout.isTTY ? s : stripAnsi(s);
+  return s;
 }
 
 new RuleTester().run('validate-schema', rule, preprocess({
@@ -40,7 +41,11 @@ new RuleTester().run('validate-schema', rule, preprocess({
         })
       }],
       errors: [{
-        message: color('[31m[1mNOT[22m[39m[31m must NOT be valid[39m\n\n[0m[31m[1m>[22m[39m[90m 1 |[39m {[32m"foo"[39m[33m:[39m[32m"bar"[39m}[0m\n[0m [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m [31m[1m👈🏽  [95mnot[31m must NOT be valid[22m[39m[0m'),
+        message: color(
+          process.env.CI ?
+            'NOT must NOT be valid\n\n\x1B[0m\x1B[31m\x1B[1m>\x1B[22m\x1B[39m\x1B[90m 1 |\x1B[39m {\x1B[32m"foo"\x1B[39m\x1B[33m:\x1B[39m\x1B[32m"bar"\x1B[39m}\n \x1B[90m   |\x1B[39m \x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m \x1B[31m\x1B[1m👈🏽  not must NOT be valid\x1B[22m\x1B[39m\x1B[0m' :
+            '\x1b[31m\x1b[1mNOT\x1b[22m\x1b[39m\x1b[31m must NOT be valid\x1b[39m\n\n\x1b[0m\x1b[31m\x1b[1m>\x1b[22m\x1b[39m\x1b[90m 1 |\x1b[39m {\x1b[32m"foo"\x1b[39m\x1b[33m:\x1b[39m\x1b[32m"bar"\x1b[39m}\n \x1b[90m   |\x1b[39m \x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m \x1b[31m\x1b[1m👈🏽  \x1b[95mnot\x1b[31m must NOT be valid\x1b[22m\x1b[39m\x1b[0m'
+        ),
         type: 'ObjectExpression'
       }],
       output: `{
