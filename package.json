@@ -38,14 +38,14 @@
     "mocha": "^11.7.0",
     "mocha-helpers": "^9.0.1",
     "renovate-config-standard": "2.1.2",
-    "standard-node-template": "6.0.0",
+    "standard-node-template": "7.0.0",
     "strip-ansi": "^6.0.1"
   },
   "peerDependencies": {
     "eslint": ">=5"
   },
   "engines": {
-    "node": ">=18.12"
+    "node": ">=20.9"
   },
   "license": "MIT",
   "files": [
