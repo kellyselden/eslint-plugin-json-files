@@ -26,7 +26,7 @@
     "sort-package-json": "^1.22.1"
   },
   "devDependencies": {
-    "@kellyselden/node-template": "6.1.0",
+    "@kellyselden/node-template": "6.3.0",
     "chai": "^4.5.0",
     "eslint": "^8.57.1",
     "eslint-config-sane": "^1.0.2",
@@ -37,7 +37,7 @@
     "eslint-plugin-prefer-let": "^4.0.0",
     "mocha": "^11.7.0",
     "mocha-helpers": "^9.0.1",
-    "renovate-config-standard": "2.1.2",
+    "renovate-config-standard": "2.2.0",
     "standard-node-template": "7.0.0",
     "strip-ansi": "^6.0.1"
   },
