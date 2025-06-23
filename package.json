@@ -38,7 +38,7 @@
     "mocha": "^11.7.0",
     "mocha-helpers": "^10.0.0",
     "renovate-config-standard": "2.2.0",
-    "standard-node-template": "7.1.0",
+    "standard-node-template": "7.2.0",
     "strip-ansi": "^6.0.1"
   },
   "peerDependencies": {
