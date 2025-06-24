@@ -126,6 +126,12 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         { versionRegex: '^' },
         { versionRegex: '~' }
       ]]
+    },
+    // treat multiple options as OR
+    {
+      code: '{ "dependencies": { "foo": "^1.2.3", "bar": "~1.2.3" } }',
+      filename: 'package.json',
+      options: [{ versionHint: 'carat', versionRegex: '~' }]
     }
   ],
   invalid: [
