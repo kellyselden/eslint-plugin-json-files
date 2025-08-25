@@ -29,7 +29,7 @@
     "@kellyselden/node-template": "6.5.2",
     "chai": "^4.5.0",
     "eslint": "^8.57.1",
-    "eslint-config-sane": "^1.0.2",
+    "eslint-config-sane": "^2.0.0",
     "eslint-config-sane-node": "^2.0.0",
     "eslint-plugin-json-files": "file:.",
     "eslint-plugin-mocha": "^10.5.0",
