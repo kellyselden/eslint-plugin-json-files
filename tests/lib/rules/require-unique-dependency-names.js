@@ -56,8 +56,7 @@ new RuleTester().run('require-unique-dependency-names', rule, preprocess({
       errors: [{
         message: 'Package "foo" already shows up in "dependencies".',
         type: 'Literal'
-      }],
-      output: '{ "dependencies": { "foo": "0.0.0" }, "devDependencies": { "foo": "1.0.0" } }'
+      }]
     }
   ]
 }));
