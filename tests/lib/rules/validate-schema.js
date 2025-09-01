@@ -8,7 +8,7 @@ const preprocess = require('../../helpers/preprocess');
 function schema(json) {
   return JSON.stringify({
     '$schema': 'http://json-schema.org/draft-07/schema#',
-    ...json
+    ...json,
   });
 }
 
@@ -25,11 +25,11 @@ new RuleTester().run('validate-schema', rule, preprocess({
         schema: schema({
           'type': 'object',
           'properties': {
-            'foo': { 'type': 'string' }
-          }
-        })
-      }]
-    }
+            'foo': { 'type': 'string' },
+          },
+        }),
+      }],
+    },
   ],
   invalid: [
     {
@@ -37,37 +37,37 @@ new RuleTester().run('validate-schema', rule, preprocess({
       options: [{
         schema: schema({
           'type': 'object',
-          'not': { 'required': ['foo'] }
-        })
+          'not': { 'required': ['foo'] },
+        }),
       }],
       errors: [{
         message: color(
           process.env.CI ?
             'NOT must NOT be valid\n\n\x1B[0m\x1B[31m\x1B[1m>\x1B[22m\x1B[39m\x1B[90m 1 |\x1B[39m {\x1B[32m"foo"\x1B[39m\x1B[33m:\x1B[39m\x1B[32m"bar"\x1B[39m}\n \x1B[90m   |\x1B[39m \x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m\x1B[31m\x1B[1m^\x1B[22m\x1B[39m \x1B[31m\x1B[1m👈🏽  not must NOT be valid\x1B[22m\x1B[39m\x1B[0m' :
-            '\x1b[31m\x1b[1mNOT\x1b[22m\x1b[39m\x1b[31m must NOT be valid\x1b[39m\n\n\x1b[0m\x1b[31m\x1b[1m>\x1b[22m\x1b[39m\x1b[90m 1 |\x1b[39m {\x1b[32m"foo"\x1b[39m\x1b[33m:\x1b[39m\x1b[32m"bar"\x1b[39m}\n \x1b[90m   |\x1b[39m \x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m \x1b[31m\x1b[1m👈🏽  \x1b[95mnot\x1b[31m must NOT be valid\x1b[22m\x1b[39m\x1b[0m'
+            '\x1b[31m\x1b[1mNOT\x1b[22m\x1b[39m\x1b[31m must NOT be valid\x1b[39m\n\n\x1b[0m\x1b[31m\x1b[1m>\x1b[22m\x1b[39m\x1b[90m 1 |\x1b[39m {\x1b[32m"foo"\x1b[39m\x1b[33m:\x1b[39m\x1b[32m"bar"\x1b[39m}\n \x1b[90m   |\x1b[39m \x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m\x1b[31m\x1b[1m^\x1b[22m\x1b[39m \x1b[31m\x1b[1m👈🏽  \x1b[95mnot\x1b[31m must NOT be valid\x1b[22m\x1b[39m\x1b[0m',
         ),
-        type: 'ObjectExpression'
+        type: 'ObjectExpression',
       }],
       output: `{
   "foo": "bar"
-}`
+}`,
     },
     {
       code: '{"foo":"bar"}',
       options: [{
         schema: schema({
           'type': 'object',
-          'not': { 'required': ['foo'] }
+          'not': { 'required': ['foo'] },
         }),
-        prettyErrors: false
+        prettyErrors: false,
       }],
       errors: [{
         message: '#/not must NOT be valid',
-        type: 'ObjectExpression'
+        type: 'ObjectExpression',
       }],
       output: `{
   "foo": "bar"
-}`
+}`,
     },
     {
       code: '{"foo":"bar","bar":"foo"}',
@@ -76,23 +76,23 @@ new RuleTester().run('validate-schema', rule, preprocess({
           'type': 'object',
           'properties': {
             'foo': {
-              'const': 'bar'
-            }
+              'const': 'bar',
+            },
           },
-          'additionalProperties': false
+          'additionalProperties': false,
         }),
         prettyErrors: false,
         avjFixerOptions: {
-          removeAdditional: true
-        }
+          removeAdditional: true,
+        },
       }],
       errors: [{
         message: '#/additionalProperties must NOT have additional properties',
-        type: 'ObjectExpression'
+        type: 'ObjectExpression',
       }],
       output: `{
   "foo": "bar"
-}`
-    }
-  ]
+}`,
+    },
+  ],
 }));

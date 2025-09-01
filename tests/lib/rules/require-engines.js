@@ -8,17 +8,17 @@ new RuleTester().run('require-engines', rule, preprocess({
   valid: [
     {
       code: '{ "engines": { "node": ">=8" } }',
-      filename: 'package.json'
+      filename: 'package.json',
     },
     {
       code: '{ "engines": { "node": ">=8", "npm": ">=5" } }',
       filename: 'package.json',
-      options: ['require-npm']
+      options: ['require-npm'],
     },
     {
       code: '{}',
-      filename: 'not-package.json'
-    }
+      filename: 'not-package.json',
+    },
   ],
   invalid: [
     {
@@ -26,16 +26,16 @@ new RuleTester().run('require-engines', rule, preprocess({
       filename: 'package.json',
       errors: [{
         message: 'Missing engines.',
-        type: 'ObjectExpression'
-      }]
+        type: 'ObjectExpression',
+      }],
     },
     {
       code: '{ "engines": {} }',
       filename: 'package.json',
       errors: [{
         message: 'Missing node engine.',
-        type: 'ObjectExpression'
-      }]
+        type: 'ObjectExpression',
+      }],
     },
     {
       code: '{ "engines": { "node": ">=8" } }',
@@ -43,8 +43,8 @@ new RuleTester().run('require-engines', rule, preprocess({
       options: ['require-npm'],
       errors: [{
         message: 'Missing npm engine.',
-        type: 'ObjectExpression'
-      }]
+        type: 'ObjectExpression',
+      }],
     },
     {
       // doesn't error on unexpected engines
@@ -52,8 +52,8 @@ new RuleTester().run('require-engines', rule, preprocess({
       filename: 'package.json',
       errors: [{
         message: 'Missing node engine.',
-        type: 'Literal'
-      }]
-    }
-  ]
+        type: 'Literal',
+      }],
+    },
+  ],
 }));

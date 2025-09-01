@@ -8,16 +8,16 @@ new RuleTester().run('ensure-repository-directory', rule, preprocess({
   valid: [
     {
       code: '{ "repository": { "directory": "foo/bar" } }',
-      filename: 'foo/bar/package.json'
+      filename: 'foo/bar/package.json',
     },
     {
       code: '{ "repository": { "directory": "bar/baz" } }',
-      filename: 'foo/bar/baz/package.json'
+      filename: 'foo/bar/baz/package.json',
     },
     {
       code: '{ "repository": "" }',
-      filename: 'package.json'
-    }
+      filename: 'package.json',
+    },
   ],
   invalid: [
     {
@@ -25,24 +25,24 @@ new RuleTester().run('ensure-repository-directory', rule, preprocess({
       filename: 'foo/bar/package.json',
       errors: [{
         message: 'repository/directory does not match actual location.',
-        type: 'Literal'
-      }]
+        type: 'Literal',
+      }],
     },
     {
       code: '{ "repository": { "directory": "foo/bar/baz" } }',
       filename: 'bar/baz/package.json',
       errors: [{
         message: 'repository/directory does not match actual location.',
-        type: 'Literal'
-      }]
+        type: 'Literal',
+      }],
     },
     {
       code: '{ "repository": { "directory": "/foo/bar" } }',
       filename: 'wrong-root/foo/bar/package.json',
       errors: [{
         message: 'repository/directory does not match actual location.',
-        type: 'Literal'
-      }]
-    }
-  ]
+        type: 'Literal',
+      }],
+    },
+  ],
 }));

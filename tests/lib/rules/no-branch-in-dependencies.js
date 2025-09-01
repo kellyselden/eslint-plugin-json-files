@@ -8,34 +8,34 @@ new RuleTester().run('no-branch-in-dependencies', rule, preprocess({
   valid: [
     {
       code: '{ "dependencies": { "lodash": "1.2.3" } }',
-      filename: 'package.json'
+      filename: 'package.json',
     },
     {
       code: '{ "devDependencies": { "lodash": "1.2.3" } }',
-      filename: 'package.json'
+      filename: 'package.json',
     },
     {
       code: '{ "optionalDependencies": { "lodash": "1.2.3" } }',
-      filename: 'package.json'
+      filename: 'package.json',
     },
     {
       code: '{ "foo": { "lodash": "lodash/lodash" } }',
-      filename: 'package.json'
+      filename: 'package.json',
     },
     {
       code: '{ "dependencies": { "lodash": "lodash/lodash" } }',
       filename: 'package.json',
-      options: [{ keys: ['foo'] }]
+      options: [{ keys: ['foo'] }],
     },
     {
       code: '{ "dependencies": { "lodash": "lodash/lodash" } }',
       filename: 'package.json',
-      options: [{ ignore: ['lodash'] }]
+      options: [{ ignore: ['lodash'] }],
     },
     {
       code: '{ "dependencies": { "lodash": "lodash/lodash" } }',
-      filename: 'not-package.json'
-    }
+      filename: 'not-package.json',
+    },
   ],
   invalid: [
     {
@@ -43,24 +43,24 @@ new RuleTester().run('no-branch-in-dependencies', rule, preprocess({
       filename: 'package.json',
       errors: [{
         message: 'Don\'t use branches.',
-        type: 'Literal'
-      }]
+        type: 'Literal',
+      }],
     },
     {
       code: '{ "devDependencies": { "lodash": "lodash/lodash" } }',
       filename: 'package.json',
       errors: [{
         message: 'Don\'t use branches.',
-        type: 'Literal'
-      }]
+        type: 'Literal',
+      }],
     },
     {
       code: '{ "optionalDependencies": { "lodash": "lodash/lodash" } }',
       filename: 'package.json',
       errors: [{
         message: 'Don\'t use branches.',
-        type: 'Literal'
-      }]
-    }
-  ]
+        type: 'Literal',
+      }],
+    },
+  ],
 }));

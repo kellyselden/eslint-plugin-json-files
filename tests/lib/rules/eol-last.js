@@ -9,13 +9,13 @@ new RuleTester().run('eol-last', rule, preprocess({
     {
       code: `{}
 `,
-      filename: 'package.json'
+      filename: 'package.json',
     },
     {
       code: '{}',
       filename: 'package.json',
-      options: ['never']
-    }
+      options: ['never'],
+    },
   ],
   invalid: [
     {
@@ -23,10 +23,10 @@ new RuleTester().run('eol-last', rule, preprocess({
       filename: 'package.json',
       errors: [{
         message: rule.meta.messages.missing,
-        type: Object.keys(rule.create())[0]
+        type: Object.keys(rule.create())[0],
       }],
       output: `{}
-`
+`,
     },
     {
       code: `{}
@@ -35,9 +35,9 @@ new RuleTester().run('eol-last', rule, preprocess({
       options: ['never'],
       errors: [{
         message: rule.meta.messages.unexpected,
-        type: Object.keys(rule.create())[0]
+        type: Object.keys(rule.create())[0],
       }],
-      output: '{}'
-    }
-  ]
+      output: '{}',
+    },
+  ],
 }));

@@ -8,8 +8,8 @@ new RuleTester().run('sort-package-json', rule, preprocess({
   valid: [
     {
       code: '{"name":"foo","version":"1.0.0"}',
-      filename: 'package.json'
-    }
+      filename: 'package.json',
+    },
   ],
   invalid: [
     {
@@ -17,9 +17,9 @@ new RuleTester().run('sort-package-json', rule, preprocess({
       filename: 'package.json',
       errors: [{
         message: 'package.json is not sorted correctly.',
-        type: 'ObjectExpression'
+        type: 'ObjectExpression',
       }],
-      output: '{"name":"foo","version":"1.0.0"}'
+      output: '{"name":"foo","version":"1.0.0"}',
     },
     // preserves trailing whitespace
     {
@@ -31,13 +31,13 @@ new RuleTester().run('sort-package-json', rule, preprocess({
       filename: 'package.json',
       errors: [{
         message: 'package.json is not sorted correctly.',
-        type: 'ObjectExpression'
+        type: 'ObjectExpression',
       }],
       output: `{
   "name": "foo",
   "version": "1.0.0"
 }
-`
+`,
     },
     // preserves existing indentation
     {
@@ -48,12 +48,12 @@ new RuleTester().run('sort-package-json', rule, preprocess({
       filename: 'package.json',
       errors: [{
         message: 'package.json is not sorted correctly.',
-        type: 'ObjectExpression'
+        type: 'ObjectExpression',
       }],
       output: `{
     "name": "foo",
     "version": "1.0.0"
-}`
+}`,
     },
     // accepts and uses options
     {
@@ -62,9 +62,9 @@ new RuleTester().run('sort-package-json', rule, preprocess({
       options: [{ sortOrder: ['license', 'name'] }],
       errors: [{
         message: 'package.json is not sorted correctly.',
-        type: 'ObjectExpression'
+        type: 'ObjectExpression',
       }],
-      output: '{"license":"UNLICENSED","name":"foo","version":"1.0.0"}'
+      output: '{"license":"UNLICENSED","name":"foo","version":"1.0.0"}',
     },
     // accepts and uses options, uses different sort order
     {
@@ -73,9 +73,9 @@ new RuleTester().run('sort-package-json', rule, preprocess({
       options: [{ sortOrder: ['name', 'license'] }],
       errors: [{
         message: 'package.json is not sorted correctly.',
-        type: 'ObjectExpression'
+        type: 'ObjectExpression',
       }],
-      output: '{"name":"foo","license":"UNLICENSED","version":"1.0.0"}'
-    }
-  ]
+      output: '{"name":"foo","license":"UNLICENSED","version":"1.0.0"}',
+    },
+  ],
 }));

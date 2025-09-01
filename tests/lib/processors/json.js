@@ -3,22 +3,24 @@
 const { describe } = require('../../helpers/mocha');
 const { expect } = require('../../helpers/chai');
 const { ESLint } = require('eslint');
+const jsonFiles = require('../../../lib');
 
 describe(function() {
   let cli;
 
   before(function() {
     cli = new ESLint({
-      extensions: ['json'],
       ignore: false,
       overrideConfig: {
+        files: ['package.json'],
         rules: {
           'quote-props': [2, 'as-needed'],
-          'json-files/require-license': [2]
+          'json-files/require-license': [2],
         },
-        plugins: ['json-files']
+        plugins: {
+          'json-files': jsonFiles,
+        },
       },
-      useEslintrc: false
     });
   });
 
@@ -38,16 +40,17 @@ describe(function() {
 
   it('should fix issues in .json files', async function() {
     let fixerCli = new ESLint({
-      extensions: ['json'],
       ignore: false,
       overrideConfig: {
+        files: ['package.json'],
         rules: {
-          'json-files/sort-package-json': [2]
+          'json-files/sort-package-json': [2],
         },
-        plugins: ['json-files']
+        plugins: {
+          'json-files': jsonFiles,
+        },
       },
-      useEslintrc: false,
-      fix: true
+      fix: true,
     });
 
     let text = `{
