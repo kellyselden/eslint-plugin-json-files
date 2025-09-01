@@ -7,15 +7,19 @@
     "eslintplugin",
     "eslint-plugin"
   ],
-  "author": "Kelly Selden",
-  "main": "lib/index.js",
-  "scripts": {
-    "lint": "eslint",
-    "test": "mocha"
-  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/kellyselden/eslint-plugin-json-files.git"
+  },
+  "license": "MIT",
+  "author": "Kelly Selden",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "lint": "eslint",
+    "test": "mocha"
   },
   "dependencies": {
     "ajv": "^8.2.0",
@@ -26,10 +30,10 @@
     "sort-package-json": "^1.22.1"
   },
   "devDependencies": {
-    "@kellyselden/node-template": "6.8.4",
+    "@kellyselden/node-template": "6.9.0",
     "chai": "^4.5.0",
     "eslint": "^9.34.0",
-    "eslint-config-sane-node": "^5.0.0",
+    "eslint-config-sane-node": "^6.0.0",
     "eslint-plugin-mocha": "^10.5.0",
     "mocha": "^11.7.1",
     "mocha-helpers": "^10.2.1",
@@ -42,9 +46,5 @@
   },
   "engines": {
     "node": ">=20.9"
-  },
-  "license": "MIT",
-  "files": [
-    "lib"
-  ]
+  }
 }
