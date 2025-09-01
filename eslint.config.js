@@ -13,7 +13,7 @@ module.exports = defineConfig([
   {
     ...mocha.configs.flat.recommended,
     files: [
-      'test/**/*-test.js',
+      'tests/**/*.js',
     ],
     rules: {
       ...mocha.configs.flat.recommended.rules,
