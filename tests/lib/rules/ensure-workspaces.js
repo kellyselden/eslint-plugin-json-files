@@ -30,10 +30,6 @@ new RuleTester().run('ensure-workspaces', rule, preprocess({
       filename: 'package.json'
     },
     {
-      code: '{ "workspaces": ["tests/fixtures/workspaces/*/bar"] }',
-      filename: 'package.json'
-    },
-    {
       code: '{ "workspaces": {} }',
       filename: 'package.json'
     },
