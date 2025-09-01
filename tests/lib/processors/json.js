@@ -8,7 +8,6 @@ const jsonFiles = require('../../../lib');
 describe(function() {
   async function _test({ rules, fix, text }) {
     let cli = new ESLint({
-      ignore: false,
       overrideConfigFile: true,
       overrideConfig: {
         files: ['package.json'],
