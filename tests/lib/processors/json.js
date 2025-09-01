@@ -14,11 +14,11 @@ describe(function() {
       overrideConfig: {
         rules: {
           'quote-props': [2, 'as-needed'],
-          'json-files/require-license': [2]
+          'json-files/require-license': [2],
         },
-        plugins: ['json-files']
+        plugins: ['json-files'],
       },
-      useEslintrc: false
+      useEslintrc: false,
     });
   });
 
@@ -42,12 +42,12 @@ describe(function() {
       ignore: false,
       overrideConfig: {
         rules: {
-          'json-files/sort-package-json': [2]
+          'json-files/sort-package-json': [2],
         },
-        plugins: ['json-files']
+        plugins: ['json-files'],
       },
       useEslintrc: false,
-      fix: true
+      fix: true,
     });
 
     let text = `{

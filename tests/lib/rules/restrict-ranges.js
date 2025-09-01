@@ -9,67 +9,67 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
     // no options
     {
       code: '{ "dependencies": { "foo": "^1.2.3" } }',
-      filename: 'package.json'
+      filename: 'package.json',
     },
     ...[ // versionHint
       {
         code: '{ "dependencies": { "foo": "^1.2.3" } }',
         filename: 'package.json',
-        options: [{ versionHint: 'caret' }]
+        options: [{ versionHint: 'caret' }],
       },
       {
         code: '{ "dependencies": { "foo": "~1.2.3" } }',
         filename: 'package.json',
-        options: [{ versionHint: 'caret' }]
+        options: [{ versionHint: 'caret' }],
       },
       {
         code: '{ "dependencies": { "foo": "1.2.3" } }',
         filename: 'package.json',
-        options: [{ versionHint: 'caret' }]
+        options: [{ versionHint: 'caret' }],
       },
       {
         code: '{ "dependencies": { "foo": "~1.2.3" } }',
         filename: 'package.json',
-        options: [{ versionHint: 'tilde' }]
+        options: [{ versionHint: 'tilde' }],
       },
       {
         code: '{ "dependencies": { "foo": "1.2.3" } }',
         filename: 'package.json',
-        options: [{ versionHint: 'tilde' }]
+        options: [{ versionHint: 'tilde' }],
       },
       {
         code: '{ "dependencies": { "foo": "1.2.3" } }',
         filename: 'package.json',
-        options: [{ versionHint: 'pin' }]
-      }
+        options: [{ versionHint: 'pin' }],
+      },
     ],
     ...[ // versionRegex
       {
         code: '{ "dependencies": { "foo": "^1.2.3" } }',
         filename: 'package.json',
-        options: [{ versionRegex: '^' }]
-      }
+        options: [{ versionRegex: '^' }],
+      },
     ],
     ...[ // dependencyTypes
       {
         code: '{ "dependencies": { "foo": "1.2.3" }, "devDependencies": { "bar": "^1.2.3" } }',
         filename: 'package.json',
-        options: [{ dependencyTypes: ['dependencies'], versionHint: 'pin' }]
-      }
+        options: [{ dependencyTypes: ['dependencies'], versionHint: 'pin' }],
+      },
     ],
     ...[ // packages
       {
         code: '{ "dependencies": { "foo": "1.2.3", "bar": "^1.2.3" } }',
         filename: 'package.json',
-        options: [{ packages: ['foo'], versionHint: 'pin' }]
-      }
+        options: [{ packages: ['foo'], versionHint: 'pin' }],
+      },
     ],
     ...[ // packageRegex
       {
         code: '{ "dependencies": { "foo": "1.2.3", "bar": "^1.2.3" } }',
         filename: 'package.json',
-        options: [{ packageRegex: 'foo', versionHint: 'pin' }]
-      }
+        options: [{ packageRegex: 'foo', versionHint: 'pin' }],
+      },
     ],
     ...[ // grouping
       {
@@ -77,46 +77,46 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         filename: 'package.json',
         options: [[
           { packages: ['foo'], versionHint: 'pin' },
-          { packageRegex: 'foo', versionHint: 'pin' }
-        ]]
-      }
+          { packageRegex: 'foo', versionHint: 'pin' },
+        ]],
+      },
     ],
     ...[ // pinUnstable
       {
         code: '{ "dependencies": { "foo": "0.1.2", "bar": "^1.2.3" } }',
         filename: 'package.json',
-        options: [{ pinUnstable: true }]
+        options: [{ pinUnstable: true }],
       },
       {
         code: '{ "dependencies": { "foo": "1.2.3-alpha.0", "bar": "^1.2.3" } }',
         filename: 'package.json',
-        options: [{ pinUnstable: true }]
+        options: [{ pinUnstable: true }],
       },
       {
         code: '{ "dependencies": { "foo": "*" } }',
         filename: 'package.json',
-        options: [{ pinUnstable: true }]
+        options: [{ pinUnstable: true }],
       },
       {
         code: '{ "dependencies": { "foo": "" } }',
         filename: 'package.json',
-        options: [{ pinUnstable: true }]
+        options: [{ pinUnstable: true }],
       },
       {
         code: '{ "dependencies": { "foo": ">= 1" } }',
         filename: 'package.json',
-        options: [{ pinUnstable: true }]
+        options: [{ pinUnstable: true }],
       },
       {
         code: '{ "dependencies": { "foo": ">= 1 < 2" } }',
         filename: 'package.json',
-        options: [{ pinUnstable: true }]
+        options: [{ pinUnstable: true }],
       },
       {
         code: '{ "dependencies": { "foo": "1 || 2" } }',
         filename: 'package.json',
-        options: [{ pinUnstable: true }]
-      }
+        options: [{ pinUnstable: true }],
+      },
     ],
     // stop searching on first match
     {
@@ -124,9 +124,9 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
       filename: 'package.json',
       options: [[
         { versionRegex: '^' },
-        { versionRegex: '~' }
-      ]]
-    }
+        { versionRegex: '~' },
+      ]],
+    },
   ],
   invalid: [
     ...[ // versionHint
@@ -136,8 +136,8 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         options: [{ versionHint: 'tilde' }],
         errors: [{
           message: 'Invalid SemVer hint (tilde).',
-          type: 'Literal'
-        }]
+          type: 'Literal',
+        }],
       },
       {
         code: '{ "dependencies": { "foo": "~1.2.3" } }',
@@ -145,8 +145,8 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         options: [{ versionHint: 'pin' }],
         errors: [{
           message: 'Invalid SemVer hint (pin).',
-          type: 'Literal'
-        }]
+          type: 'Literal',
+        }],
       },
       {
         code: '{ "dependencies": { "foo": "^1.2.3" } }',
@@ -154,8 +154,8 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         options: [{ versionHint: 'pin' }],
         errors: [{
           message: 'Invalid SemVer hint (pin).',
-          type: 'Literal'
-        }]
+          type: 'Literal',
+        }],
       },
       {
         code: '{ "dependencies": { "foo": "*" } }',
@@ -163,9 +163,9 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         options: [{ versionHint: 'caret' }],
         errors: [{
           message: 'Invalid SemVer hint (caret).',
-          type: 'Literal'
-        }]
-      }
+          type: 'Literal',
+        }],
+      },
     ],
     ...[ // versionRegex
       {
@@ -174,9 +174,9 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         options: [{ versionRegex: '~' }],
         errors: [{
           message: 'Regex does not pass (/~/).',
-          type: 'Literal'
-        }]
-      }
+          type: 'Literal',
+        }],
+      },
     ],
     ...[ // dependencyTypes
       {
@@ -185,9 +185,9 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         options: [{ dependencyTypes: ['dependencies'], versionHint: 'pin' }],
         errors: [{
           message: 'Invalid SemVer hint (pin).',
-          type: 'Literal'
-        }]
-      }
+          type: 'Literal',
+        }],
+      },
     ],
     ...[ // packages
       {
@@ -196,9 +196,9 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         options: [{ packages: ['foo'], versionHint: 'pin' }],
         errors: [{
           message: 'Invalid SemVer hint (pin).',
-          type: 'Literal'
-        }]
-      }
+          type: 'Literal',
+        }],
+      },
     ],
     ...[ // packageRegex
       {
@@ -207,9 +207,9 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         options: [{ packageRegex: 'foo', versionHint: 'pin' }],
         errors: [{
           message: 'Invalid SemVer hint (pin).',
-          type: 'Literal'
-        }]
-      }
+          type: 'Literal',
+        }],
+      },
     ],
     ...[ // grouping
       {
@@ -217,13 +217,13 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         filename: 'package.json',
         options: [[
           { packages: ['foo'], versionHint: 'caret' },
-          { packageRegex: 'bar', versionHint: 'pin' }
+          { packageRegex: 'bar', versionHint: 'pin' },
         ]],
         errors: [{
           message: 'Invalid SemVer hint (pin).',
-          type: 'Literal'
-        }]
-      }
+          type: 'Literal',
+        }],
+      },
     ],
     ...[ // pinUnstable
       {
@@ -232,8 +232,8 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         options: [{ pinUnstable: true }],
         errors: [{
           message: 'Invalid SemVer hint on unstable.',
-          type: 'Literal'
-        }]
+          type: 'Literal',
+        }],
       },
       {
         code: '{ "dependencies": { "foo": "^1.2.3-alpha.0", "bar": "^1.2.3" } }',
@@ -241,8 +241,8 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         options: [{ pinUnstable: true }],
         errors: [{
           message: 'Invalid SemVer hint on unstable.',
-          type: 'Literal'
-        }]
+          type: 'Literal',
+        }],
       },
       {
         code: '{ "dependencies": { "foo": ">= 0.1.1" } }',
@@ -250,8 +250,8 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         options: [{ pinUnstable: true }],
         errors: [{
           message: 'Invalid SemVer hint on unstable.',
-          type: 'Literal'
-        }]
+          type: 'Literal',
+        }],
       },
       {
         code: '{ "dependencies": { "foo": ">= 0.1.1 < 1" } }',
@@ -259,8 +259,8 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         options: [{ pinUnstable: true }],
         errors: [{
           message: 'Invalid SemVer hint on unstable.',
-          type: 'Literal'
-        }]
+          type: 'Literal',
+        }],
       },
       {
         code: '{ "dependencies": { "foo": "0.1 || 1" } }',
@@ -268,9 +268,9 @@ new RuleTester().run('restrict-ranges', rule, preprocess({
         options: [{ pinUnstable: true }],
         errors: [{
           message: 'Invalid SemVer hint on unstable.',
-          type: 'Literal'
-        }]
-      }
-    ]
-  ]
+          type: 'Literal',
+        }],
+      },
+    ],
+  ],
 }));

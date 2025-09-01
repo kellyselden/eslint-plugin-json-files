@@ -10,7 +10,7 @@
   "author": "Kelly Selden",
   "main": "lib/index.js",
   "scripts": {
-    "lint": "eslint . --ext js,json",
+    "lint": "eslint",
     "test": "mocha"
   },
   "repository": {
@@ -28,16 +28,12 @@
   "devDependencies": {
     "@kellyselden/node-template": "6.8.4",
     "chai": "^4.5.0",
-    "eslint": "^8.57.1",
-    "eslint-config-sane": "^1.0.2",
-    "eslint-config-sane-node": "^2.0.0",
-    "eslint-plugin-json-files": "file:.",
+    "eslint": "^9.34.0",
+    "eslint-config-sane-node": "^5.0.0",
     "eslint-plugin-mocha": "^10.5.0",
-    "eslint-plugin-n": "^17.20.0",
-    "eslint-plugin-prefer-let": "^4.0.0",
-    "mocha": "^11.7.0",
-    "mocha-helpers": "^10.0.0",
-    "renovate-config-standard": "2.3.0",
+    "mocha": "^11.7.1",
+    "mocha-helpers": "^10.2.1",
+    "renovate-config-standard": "2.4.2",
     "standard-node-template": "7.2.0",
     "strip-ansi": "^6.0.1"
   },

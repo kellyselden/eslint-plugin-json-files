@@ -8,17 +8,17 @@ new RuleTester().run('require-license', rule, preprocess({
   valid: [
     {
       code: '{ "license": "MIT" }',
-      filename: 'package.json'
+      filename: 'package.json',
     },
     {
       code: '{ "license": "UNLICENSED" }',
       filename: 'package.json',
-      options: ['allow-unlicensed']
+      options: ['allow-unlicensed'],
     },
     {
       code: '{}',
-      filename: 'not-package.json'
-    }
+      filename: 'not-package.json',
+    },
   ],
   invalid: [
     {
@@ -26,16 +26,16 @@ new RuleTester().run('require-license', rule, preprocess({
       filename: 'package.json',
       errors: [{
         message: 'Missing license.',
-        type: 'ObjectExpression'
-      }]
+        type: 'ObjectExpression',
+      }],
     },
     {
       code: '{ "license": "UNLICENSED" }',
       filename: 'package.json',
       errors: [{
         message: 'Missing license.',
-        type: 'Literal'
-      }]
-    }
-  ]
+        type: 'Literal',
+      }],
+    },
+  ],
 }));
