@@ -22,31 +22,30 @@ $ npm install eslint-plugin-json-files --save-dev
 
 ## Usage
 
-Add `json-files` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Add `json-files` to the plugins and processor section of your `eslint.config.js` configuration file.
+You can omit the `eslint-plugin-` prefix:
 
-```json
+```js
+const jsonFiles = require('eslint-plugin-json-files');
+
+// ...
+
 {
-    "plugins": [
-        "json-files"
-    ]
+  plugins: {
+    'json-files': jsonFiles,
+  },
+  processor: 'json-files/json',
 }
 ```
-
 
 Then configure the rules you want to use under the rules section.
 
-```json
+```js
 {
-    "rules": {
-        "json-files/rule-name": "error"
-    }
+  rules: {
+    'json-files/rule-name': 'error',
+  },
 }
-```
-
-Don't forget to use the extension option.
-
-```
-eslint . --ext js,json
 ```
 
 ## Supported Rules
