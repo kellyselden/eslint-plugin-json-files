@@ -1,5 +1,14 @@
 {
   "extends": [
     "standard"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "standard-node-template",
+        "@kellyselden/node-template"
+      ],
+      "separateMinorPatch": true
+    }
   ]
 }
