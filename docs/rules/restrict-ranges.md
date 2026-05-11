@@ -48,6 +48,9 @@ This rule has either an object option:
 * `"dependencyTypes"` limit the dependency groups
 * `"packages"` limit the range checking to select packages
 * `"packageRegex"` limit the range checking to select packages
+
+  `"versionHint"` is required if `"packageRegex"` is set.
+
 * `"versionHint"` limit the range using semver hints
   * `"pin"` no version hints
   * `"tilde"` include `~` or pinned
