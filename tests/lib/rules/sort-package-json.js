@@ -1,6 +1,8 @@
 'use strict';
 
 const { RuleTester } = require('eslint');
+const { describe, it } = require('../../helpers/mocha');
+const { expect } = require('../../helpers/chai');
 const rule = require('../../../lib/rules/sort-package-json');
 const preprocess = require('../../helpers/preprocess');
 
@@ -79,3 +81,17 @@ new RuleTester().run('sort-package-json', rule, preprocess({
     },
   ],
 }));
+
+// ESLint 10 removed context.getFilename() and context.getSourceCode(),
+// leaving only the context.filename and context.sourceCode properties.
+describe('eslint 10 context', function() {
+  it('reads filename and source code without the removed methods', function() {
+    let context = {
+      filename: 'package.json',
+      sourceCode: { text: '{"name":"foo"}' },
+      options: [],
+    };
+
+    expect(() => rule.create(context)).to.not.throw();
+  });
+});
