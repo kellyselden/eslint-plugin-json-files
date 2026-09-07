@@ -37,13 +37,13 @@
     "mocha": "^11.7.1",
     "mocha-helpers": "^10.2.1",
     "renovate-config-standard": "2.4.2",
-    "standard-node-template": "7.2.0",
+    "standard-node-template": "8.0.0",
     "strip-ansi": "^6.0.1"
   },
   "peerDependencies": {
     "eslint": ">=5"
   },
   "engines": {
-    "node": ">=20.9"
+    "node": ">=22.11"
   }
 }
