@@ -32,7 +32,7 @@
   "devDependencies": {
     "@kellyselden/eslint-config": "^2.0.0",
     "@kellyselden/node-template": "7.7.0",
-    "chai": "^4.5.0",
+    "chai": "^6.0.0",
     "eslint": "^9.34.0",
     "mocha": "^11.7.1",
     "mocha-helpers": "^11.0.0",
